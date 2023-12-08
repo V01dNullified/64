@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>boring website</title>
+    <script>
+      let buttonpresses = 0;
+
+      function L() {
+        const newWindow = window.open("about:blank", "_blank");
+        if (newWindow) {
+          newWindow.document.write(`
+            <!DOCTYPE html>
+            <html>
+              <head>
+                <title>New Tab</title>
+              </head>
+              <body>
+                <iframe src="file2.html" style="width:100%;height:100vh;border:none;"></iframe>
+              </body>
+            </html>
+          `);
+        } else {
+          alert("Pop-up blocked! Please allow pop-ups for this site to see the content.");
+        }
+      }
+
+      function f() {
+        buttonpresses = buttonpresses + 1;
+        if (buttonpresses >= 3) {
+          L();
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="f()">boring button</button>
+  </body>
+</html>
